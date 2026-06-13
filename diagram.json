@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "author": "Projet Securite Blynk",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 100,
+      "left": 200,
+      "attrs": { "env": "arduino-community" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": -68.5,
+      "left": 19,
+      "attrs": { "value": "0" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot2",
+      "top": -60,
+      "left": 220,
+      "attrs": { "value": "0" }
+    },
+    { "type": "wokwi-dht22", "id": "dht", "top": -60, "left": 430, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 300,
+      "left": 20,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-led", "id": "ledV", "top": 260, "left": 430, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledJ", "top": 310, "left": 430, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "ledR", "top": 360, "left": 430, "attrs": { "color": "red" } },
+    { "type": "wokwi-buzzer", "id": "buzz", "top": 300, "left": 560, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "pot1:SIG", "esp:D34", "green", [] ],
+    [ "pot1:VCC", "esp:3V3", "red", [] ],
+    [ "pot1:GND", "esp:GND.2", "black", [] ],
+    [ "pot2:SIG", "esp:D35", "green", [] ],
+    [ "pot2:VCC", "esp:3V3", "red", [] ],
+    [ "pot2:GND", "esp:GND.2", "black", [] ],
+    [ "dht:SDA", "esp:D4", "green", [] ],
+    [ "dht:VCC", "esp:3V3", "red", [] ],
+    [ "dht:GND", "esp:GND.2", "black", [] ],
+    [ "btn:1.l", "esp:D13", "green", [] ],
+    [ "btn:2.r", "esp:GND.2", "black", [] ],
+    [ "esp:D25", "ledV:A", "green", [] ],
+    [ "ledV:C", "esp:GND.1", "black", [] ],
+    [ "esp:D26", "ledJ:A", "yellow", [] ],
+    [ "ledJ:C", "esp:GND.1", "black", [] ],
+    [ "esp:D27", "ledR:A", "red", [] ],
+    [ "ledR:C", "esp:GND.1", "black", [] ],
+    [ "esp:D14", "buzz:1", "green", [] ],
+    [ "buzz:2", "esp:GND.1", "black", [] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}
