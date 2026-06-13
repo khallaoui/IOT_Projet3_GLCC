@@ -3,7 +3,7 @@
  * Projet 3 – Detecteur de fuite de gaz et alarme incendie
  * Version : 1.0.0
  * Date    : 2026
- * GITHUB   :
+ * GITHUB   : https://github.com/khallaoui/IOT_Projet3_GLCC
  * ============================================================
  */
 
